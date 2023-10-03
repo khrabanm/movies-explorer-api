@@ -1,0 +1,42 @@
+{
+  "name": "movies-explorer-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "lint": "npx eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khrabanm/movies-explorer-api.git"
+  },
+  "author": "Khraban Maria",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/khrabanm/movies-explorer-api/issues"
+  },
+  "homepage": "https://github.com/khrabanm/movies-explorer-api#readme",
+  "devDependencies": {
+    "eslint": "^8.46.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.28.0",
+    "nodemon": "^2.0.22"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.19.0",
+    "celebrate": "^15.0.1",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.17.1",
+    "express-winston": "^4.2.0",
+    "jsonwebtoken": "^9.0.1",
+    "mongoose": "^7.4.3",
+    "validator": "^13.1.1",
+    "winston": "^3.10.0"
+  }
+}
