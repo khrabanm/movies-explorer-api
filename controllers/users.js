@@ -43,9 +43,8 @@ const createUser = (req, res, next) => {
 };
 
 const login = (req, res, next) => {
-  const {email, password} = req.body;
-  User.findOne({email})
   const { email, password } = req.body;
+  User.findOne({ email })
     .select('+password')
     .orFail(new ErrorAccess('Пользователь не найден'))
     .then((user) => {
@@ -65,6 +64,10 @@ const login = (req, res, next) => {
     })
     .catch(next);
 };
+
+const unlogin = (req, res) => {
+  res.clearCookie('token').send({ message: 'Вы вышли из системы' });
+}
 
 const findById = (req, res, next, id) => {
   User.findById(id)
@@ -101,6 +104,7 @@ const updateProfileInfo = (req, res, next) => {
 module.exports = {
   createUser,
   login,
+  unlogin,
   getCurrentUser,
   updateProfileInfo,
 };
