@@ -1,7 +1,7 @@
 const { ValidationError } = require('mongoose').Error;
 const {
   STATUS_OK,
-  CREATED
+  CREATED,
 } = require('../utils/constants');
 const NotFound = require('../utils/errors/NotFound');
 const BadRequest = require('../utils/errors/BadRequest');
@@ -14,7 +14,7 @@ const getMovies = (req, res, next) => {
     .then((movies) => {
       res
         .status(STATUS_OK)
-        .send({data: {movies}});
+        .send({ data: { movies } });
     })
     .catch(next);
 };
@@ -23,10 +23,10 @@ const createMovie = (req, res, next) => {
   const { _id } = req.user;
   const movie = req.body;
   Movie.create({ ...movie, owner: _id })
-    .then((movie) => {
+    .then((newMovie) => {
       res
         .status(CREATED)
-        .send(movie);
+        .send(newMovie);
     })
     .catch((err) => {
       if (err instanceof ValidationError) {
@@ -55,5 +55,5 @@ const deleteMovie = (req, res, next) => {
 module.exports = {
   getMovies,
   createMovie,
-  deleteMovie
+  deleteMovie,
 };

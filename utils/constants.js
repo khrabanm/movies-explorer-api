@@ -6,4 +6,4 @@ module.exports = {
   DEV_SECRET,
   STATUS_OK,
   CREATED,
-}
+};

@@ -1,6 +1,6 @@
-const {celebrate, Joi} = require('celebrate');
+const { celebrate, Joi } = require('celebrate');
 
-const regex = /^(http|https):\/\/(www\.)?[a-zA-Z0-9\-._~:\/?#[\]@!$&'()*+,;=]{2,256}\.[a-zA-Z0-9.\/?#-]{2,}$/;
+const regex = /^(http|https):\/\/(www\.)?[a-zA-Z0-9\-._~:/?#[\]@!$&'()*+,;=]{2,256}\.[a-zA-Z0-9./?#-]{2,}$/;
 
 const validateUser = celebrate({
   body: Joi.object().keys({
@@ -51,5 +51,5 @@ module.exports = {
   validateUserCreate,
   validateUser,
   validateMovie,
-  validateMovieID
+  validateMovieID,
 };
