@@ -11,7 +11,7 @@ const Movie = require('../models/movie');
 
 const getMovies = (req, res, next) => {
   const owner = req.user._id;
-  Movie.find({owner})
+  Movie.find({ owner })
     .then((movies) => {
       res
         .status(STATUS_OK)
