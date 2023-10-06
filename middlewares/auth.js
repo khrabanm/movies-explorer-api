@@ -2,8 +2,7 @@ require('dotenv').config();
 const jwt = require('jsonwebtoken');
 const { DEV_SECRET } = require('../utils/constants');
 const ErrorAccess = require('../utils/errors/ErrorAccess');
-
-const { JWT_SECRET, NODE_ENV } = process.env;
+const { NODE_ENV, JWT_SECRET } = require('../utils/config');
 
 const handleAuthError = (req, res, next) => next(new ErrorAccess('Необходима авторизация'));
 

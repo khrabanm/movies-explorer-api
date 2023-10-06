@@ -7,13 +7,13 @@ const {
   ERROR_CODE_UNIQUE, CREATED, DEV_SECRET, STATUS_OK,
 } = require('../utils/constants');
 
-const { JWT_SECRET, NODE_ENV } = process.env;
 const BadRequest = require('../utils/errors/BadRequest');
 const NotFound = require('../utils/errors/NotFound');
 const NotUnique = require('../utils/errors/NotUnique');
 const ErrorAccess = require('../utils/errors/ErrorAccess');
 
 const User = require('../models/user');
+const { NODE_ENV, JWT_SECRET } = require('../utils/config');
 
 const createUser = (req, res, next) => {
   const {
@@ -67,7 +67,7 @@ const login = (req, res, next) => {
 
 const unlogin = (req, res) => {
   res.clearCookie('token').send({ message: 'Вы вышли из системы' });
-}
+};
 
 const findById = (req, res, next, id) => {
   User.findById(id)
