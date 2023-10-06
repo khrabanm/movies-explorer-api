@@ -10,7 +10,8 @@ const Forbidden = require('../utils/errors/Forbidden');
 const Movie = require('../models/movie');
 
 const getMovies = (req, res, next) => {
-  Movie.find({})
+  const owner = req.user._id;
+  Movie.find({owner})
     .then((movies) => {
       res
         .status(STATUS_OK)
