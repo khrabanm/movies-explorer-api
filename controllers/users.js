@@ -93,6 +93,9 @@ const updateProfileInfo = (req, res, next) => {
       res.status(STATUS_OK).send({ data: { email: user.email, name: user.name } });
     })
     .catch((err) => {
+      if (err.code === ERROR_CODE_UNIQUE) {
+        next(new NotUnique('Указанный email, не совпадает с текущим email пользователя'));
+      }
       if (err instanceof ValidationError || err instanceof CastError) {
         next(new BadRequest('Данные введены некорректно'));
       } else {
